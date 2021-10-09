@@ -1,0 +1,14 @@
+#' @title MBQC data, group A.
+#'
+#' @description A subset of 848 samples from MBQC are included in the group A.
+#'
+#' @format A list with multiple elements, which are
+#' \describe{
+#'   \item{DistMat.EU}{the n by n distance matrix. n is the number of samples. Euclidean distance is applied.}
+#'   \item{DistMat.BC}{the n by n distance matrix. n is the number of samples. Bray-Curtis distance is applied.}
+#'   \item{ConfounderMat}{the n by q confounder matrix}
+#'   \item{Specimen}{The specimen label of samples}
+#'   \item{BioLab}{The bioinformatics labs which processed the samples}
+#'   \item{BioID}{The sample ID from biological labs before sending to the bioinformatics labs.}
+#' }
+"data_mbqc_groupA"
