@@ -32,9 +32,9 @@ To install "acPCoA", first you need to install the P package "acPCA" from https:
 Then, you can install the released version of "acPCoA" from github with
 
 ```{r}
-install.packages("devtools")
-library(devtools)
-install_github("YuWang28/acPCoA")
+#install.packages("devtools")
+#library(devtools)
+#install_github("YuWang28/acPCoA")
 ```
 
 ## Example
@@ -43,6 +43,7 @@ This is a basic example which shows you how to implement acPCoA for visualizatio
 
 ```{r example}
 library(acPCoA)
+library(ggplot2)
 X <- data_mbqc_groupA$DistMat.BC;
 Y <- data_mbqc_groupA$ConfounderMat;
 result_acPCoA <- acPCoA(DistanceMatrix=X, ConfounderMatrix=Y, nPC=2, lambda=seq(0, 20, 0.05), kernel="linear")
