@@ -18,5 +18,7 @@ Imports:
     acPCA
 Depends: 
     R (>= 2.10)
+Suggests:
+    ggplot2
 URL: https://github.com/YuWang28/acPCoA
 BugReports: https://github.com/YuWang28/acPCoA/issues

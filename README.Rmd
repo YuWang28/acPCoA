@@ -27,38 +27,27 @@ AC-PCoA is a method proposed by Yu Wang etc., which reduces the data
 
 ## Installation
 
-To install the R package:
-1. Download 'acPCA_1.0.tar.gz' in "/AC-PCA/R_package/";
-2. In R/Rstudio, type install.packages("acPCA_1.0.tar.gz", repos = NULL, type="source")
+To install "acPCoA", first you need to install the P package "acPCA" from https://github.com/linzx06/AC-PCA
 
-a
-You can install the released version of acPCoA by downloading 'acPCA_version_number.tar.gz' in "YuWang/AC-PCA/R_package/" and typing:
+Then, you can install the released version of "acPCoA" from github with
 
-``` r
-install.packages("acPCA_version_number.tar.gz", repos = NULL, type="source")
+```{r}
+install.packages("devtools")
+library(devtools)
+install_github("YuWang28/acPCoA")
 ```
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example which shows you how to implement acPCoA for visualization after confounding factor adjustment:
 
 ```{r example}
 library(acPCoA)
-## basic example code
+X <- data_mbqc_groupA$DistMat.BC;
+Y <- data_mbqc_groupA$ConfounderMat;
+result_acPCoA <- acPCoA(DistanceMatrix=X, ConfounderMatrix=Y, nPC=2, lambda=seq(0, 20, 0.05), kernel="linear")
+ggplot(as.data.frame(result_acPCoA$Xv),aes(x=V1,y=V2,color=data_mbqc_groupA$Specimen))+geom_point()
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
 
-```{r cars}
-summary(cars)
-```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/master/examples>.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
